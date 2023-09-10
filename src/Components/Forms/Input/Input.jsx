@@ -1,6 +1,6 @@
 import styles from './Input.module.css';
 
-function Input({ label, type, id }) {
+const Input = ({ label, type, id }) => {
   return (
     <div className={styles.wrapper}>
       <label className={styles.label} htmlFor={id}>{label}</label>

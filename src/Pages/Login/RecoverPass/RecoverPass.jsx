@@ -1,5 +1,5 @@
 
-function RecoverPass() {
+const RecoverPass = () => {
   return (
     <div>RecoverPass</div>
   )

@@ -5,7 +5,7 @@ import Input from '../../../Components/Forms/Input/Input';
 import Button from '../../../Components/Forms/Button/Button';
 
 
-function LoginUser() {
+const LoginUser = () => {
 
   const userService = new UserService();
 

@@ -5,7 +5,7 @@ import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 
-function App() {
+const App = () => {
 
   return (
     <div>

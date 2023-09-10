@@ -4,7 +4,7 @@ import CreateUser from './CreateUser/CreateUser';
 import RecoverPass from './RecoverPass/RecoverPass';
 import ResetPass from './ResetPass/ResetPass';
 
-function Login() {
+const Login = () => {
   return (
     <div>
       <Routes>

@@ -1,5 +1,5 @@
 
-function CreateUser() {
+const CreateUser = () => {
   return (
     <div>CreateUser</div>
   )

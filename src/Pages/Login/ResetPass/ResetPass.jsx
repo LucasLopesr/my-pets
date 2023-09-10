@@ -1,4 +1,4 @@
-function ResetPass() {
+const ResetPass = () => {
   return (
     <div>ResetPass</div>
   )
