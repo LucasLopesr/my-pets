@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UserService from '../../../Api/UserService';
+import Input from '../../../Components/Forms/Input/Input';
+import Button from '../../../Components/Forms/Button/Button';
 
 
 function LoginUser() {
@@ -22,11 +24,10 @@ function LoginUser() {
     <section>
       <h1>Login</h1>
       <form action='' onSubmit={ handleLogin }>
-        <label htmlFor='username'>Usuário</label>
-        <input id='username' type='text' onChange={({target}) => setUsername(target.value)} />
-        <label htmlFor='password'>Senha</label>
-        <input id='password'type='text' onChange={({target}) => setPassword(target.value)} />
-        <button type="submit">Entrar</button>
+        <Input label='Usuário' type='text' id='username'/>
+        <Input label='Senha' type='password' id='password'/>
+
+        <Button type='submit'>Entrar</Button>
       </form>
        
       <Link to='create'> Criar Usuário</Link>
