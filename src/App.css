@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Spectral:wght@700&display=swap');
 * {
   box-sizing: border-box;
 }
@@ -37,7 +38,7 @@ button, input {
   color: #333;
 }
 
-.container {
+.app-container {
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
@@ -45,4 +46,40 @@ button, input {
 
 a {
   text-decoration: none;
+  color: #333;
+}
+
+.app-title {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 3rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.app-title::after {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fb1;
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  border-radius: 0.2rem;
+  z-index: -1;
+}
+
+.app-anime-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: anime-left .3s forwards;
+}
+
+@keyframes anime-left {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
 }

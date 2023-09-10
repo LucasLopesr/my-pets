@@ -10,7 +10,7 @@ const Header = () => {
 console.log(data);
   return (
     <header className={styles.header}>
-      <nav className={`${styles.nav} container`}>
+      <nav className={`${styles.nav} app-container`}>
         <Link className={styles.logo} to='/' aria-label='Pets - Home'><Logo/></Link>
         { data ? (
           <Link className={styles.loginButton} to='/account'> { data.username }</Link>

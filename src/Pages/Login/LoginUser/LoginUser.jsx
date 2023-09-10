@@ -4,11 +4,13 @@ import Input from '../../../Components/Forms/Input/Input';
 import Button from '../../../Components/Forms/Button/Button';
 import useForm from '../../../Hooks/useForm';
 import { UserContext } from '../../../Contexts/UserContext';
+import { Error } from '../../../Components/Forms/Error/Error';
+import styles from './LoginUser.module.css';
+import stylesBtn from '../../../Components/Forms/Button/Button.module.css';
 
 
 const LoginUser = () => {
-  const { userLogin, error, loading, isUserLogged } = useContext(UserContext);
-
+  const { userLogin, error, loading } = useContext(UserContext);
 
   const username = useForm();
   const password = useForm();
@@ -21,9 +23,9 @@ const LoginUser = () => {
   }
 
   return (
-    <section>
-      <h1>Login</h1>
-      <form action='' onSubmit={ handleLogin }>
+    <section className='app-anime-left'>
+      <h1 className='app-title'>Login</h1>
+      <form className={styles.form} action='' onSubmit={ handleLogin }>
         <Input label='Usuário' type='text' id='username' {...username}/>
         <Input label='Senha' type='password' id='password' {...password}/>
         { loading ? (
@@ -31,11 +33,15 @@ const LoginUser = () => {
         ) : (
           <Button type='submit'>Entrar</Button>
         )}
-        
-        {error && <p> { error }</p>}
+        <Error error={error}/>
       </form>
-       
-      <Link to='create'> Criar Usuário</Link>
+      <Link className={styles.recover} to='recover'> Perdeu a senha?</Link>
+      <div className={styles.create}>
+        <h2 className={styles.subtitle}> Cadastre-se </h2>
+        <p>Ainda não possui conta? Cadastre-se no site.</p>
+        <Link className={stylesBtn.button} to='create'> Criar Usuário</Link>
+      </div>
+
     </section>
   )
 }
