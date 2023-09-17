@@ -38,7 +38,6 @@ export const UserStorage = ({ children }) => {
 
   const getUser = useCallback(async () => {
     const user = await userService.getUser();
-    console.log(user);
     setData(user)
     setIsUserLogged(true);
   }, [userService]);
@@ -77,15 +76,24 @@ export const UserStorage = ({ children }) => {
     autoLogin();
   }, [ userService, getUser, userLogout ]);
 
+  const context = useMemo(() => ({
+    userLogin,
+    userLogout,
+    data,
+    error,
+    loading,
+    isUserLogged
+  }), [
+    userLogin,
+    userLogout,
+    data,
+    error,
+    loading,
+    isUserLogged
+  ]);
+
   return (
-    <UserContext.Provider value={{
-      userLogin,
-      userLogout,
-      data,
-      error,
-      loading,
-      isUserLogged
-    }} >
+    <UserContext.Provider value={context} >
       { children }
     </UserContext.Provider>
   )

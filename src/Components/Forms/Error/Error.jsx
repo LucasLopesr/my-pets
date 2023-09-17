@@ -1,4 +1,6 @@
 import styles from './Error.module.css';
+import PropTypes from 'prop-types';
+
 export const Error = ({error}) => {
 
   if (!error) {
@@ -9,3 +11,6 @@ export const Error = ({error}) => {
     <p className={styles.error}> { error } </p>
   )
 }
+Error.propTypes = {
+  error: PropTypes.string.isRequired, 
+};

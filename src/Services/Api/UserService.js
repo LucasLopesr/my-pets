@@ -2,7 +2,7 @@ import API_URL from './UrlApi';
 
 const tokenUri = 'jwt-auth/v1/token';
 const tokenValidateUri = 'jwt-auth/v1/token/validate';
-const getUserUri = 'api/user';
+const userUri = 'api/user';
 
 export default class UserService {
 
@@ -13,7 +13,7 @@ export default class UserService {
   };
 
   getUser = async() => {
-    const { url, options } = get(getUserUri);
+    const { url, options } = get(userUri);
     const response = await fetch(url, options)
 
     const json = await response.json();
@@ -27,6 +27,12 @@ export default class UserService {
     return await fetch(url, options);
   };
 
+  createUser = async (user) => {
+    console.log(user);
+    const { url, options } = post(userUri, user);
+
+    return await fetch(url, options);
+  }
 }
 
 const get = (uri) => {
