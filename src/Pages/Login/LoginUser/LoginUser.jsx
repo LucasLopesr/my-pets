@@ -4,7 +4,7 @@ import Input from '../../../Components/Forms/Input/Input';
 import Button from '../../../Components/Forms/Button/Button';
 import useForm from '../../../Hooks/useForm';
 import { UserContext } from '../../../Contexts/UserContext';
-import { Error } from '../../../Components/Forms/Error/Error';
+import { ErrorComponent } from '../../../Components/Forms/Error/ErrorComponent';
 import styles from './LoginUser.module.css';
 import stylesBtn from '../../../Components/Forms/Button/Button.module.css';
 
@@ -33,7 +33,7 @@ const LoginUser = () => {
         ) : (
           <Button type='submit'>Entrar</Button>
         )}
-        <Error error={error}/>
+        <ErrorComponent error={error}/>
       </form>
       <Link className={styles.recover} to='recover'> Perdeu a senha?</Link>
       <div className={styles.create}>

@@ -1,7 +1,7 @@
-import styles from './Error.module.css';
+import styles from './ErrorComponent.module.css';
 import PropTypes from 'prop-types';
 
-export const Error = ({error}) => {
+export const ErrorComponent = ({error}) => {
 
   if (!error) {
     return null;
@@ -11,6 +11,6 @@ export const Error = ({error}) => {
     <p className={styles.error}> { error } </p>
   )
 }
-Error.propTypes = {
+ErrorComponent.propTypes = {
   error: PropTypes.string.isRequired, 
 };

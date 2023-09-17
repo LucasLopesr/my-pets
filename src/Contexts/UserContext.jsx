@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { createContext, useState, useEffect, useMemo, useCallback } from 'react';
 import UserService from '../Services/Api/UserService';
 
@@ -13,7 +14,13 @@ export const UserStorage = ({ children }) => {
   
   const userService = useMemo(() => new UserService(), []);
 
-  const userLogin = async (username, password) => {
+  const getUser = useCallback(async () => {
+    const user = await userService.getUser();
+    setData(user)
+    setIsUserLogged(true);
+  }, [userService]);
+
+  const userLogin = useCallback(async (username, password) => {
     try {
       setError(null);
       setLoading(true);
@@ -34,13 +41,7 @@ export const UserStorage = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }
-
-  const getUser = useCallback(async () => {
-    const user = await userService.getUser();
-    setData(user)
-    setIsUserLogged(true);
-  }, [userService]);
+  }, [navigate, userService, getUser]);
 
   const userLogout = useCallback(async () => {
     setData(null);
@@ -98,3 +99,7 @@ export const UserStorage = ({ children }) => {
     </UserContext.Provider>
   )
 }
+
+UserStorage.propTypes = {
+  children: PropTypes.array
+};
